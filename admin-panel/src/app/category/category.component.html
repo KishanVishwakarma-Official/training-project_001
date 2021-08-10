@@ -1,0 +1,30 @@
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+  
+    <table class="table">
+      <thead>
+        <tr>
+         
+          <th scope="col">category Id</th>
+          <th scope="col">parent Id</th>
+          <th scope="col">category</th>
+          <th scope="col">created by</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let item of catList">
+         
+          <td scope="col">{{item.cat_id}}</td>
+          <td scope="col">{{item.parent_id}}</td>
+          <td scope="col">{{item.cat_name}}</td>
+          <td scope="col">{{item.created_by}}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    </div>
+  
+  </div>
