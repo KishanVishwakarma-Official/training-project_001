@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServicesService } from '../services.service';
@@ -10,22 +9,15 @@ import { ServicesService } from '../services.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginform: FormGroup;
+  logInform:FormGroup;
   constructor(public authService:ServicesService) { }
   ngOnInit(): void {
-    this.loginform=new FormGroup({
+    this.logInform=new FormGroup({
       'email': new FormControl('',[Validators.required, Validators.email]),
       'password': new FormControl('',Validators.required)
     })
   }
 
-  onLogin(){
-    if(this.loginform.invalid){
-      return;
-    }
-    console.log(this.loginform.value);
-    
-    this.authService.login(this.loginform.value)
-  }
+ 
 
 }

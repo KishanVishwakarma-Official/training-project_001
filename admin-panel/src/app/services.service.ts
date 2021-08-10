@@ -29,6 +29,14 @@ getCategory()
   return this.http.get("http://localhost:5000/category/list");
 }
 
+// admin 
+
+getAdmin()
+{
+  return this.http.get("http://localhost:5000/admin/list");
+}
+
+
 ///////////////
 
 
@@ -61,7 +69,7 @@ createUser(users:AuthData) {
      // this.subject.next(true);
       this.isAuthenticated=false;
       this.subject.next(false);
-      this.saveAuthData(token)
+      // this.saveAuthData(token)
       this.router.navigate(['/login'])
     }
    alert("login to continue")
@@ -81,7 +89,7 @@ login(loginData:LoginData) {
     if(token){
       this.isAuthenticated=true;
       this.subject.next(true);
-      this.saveAuthData(token)
+      // this.saveAuthData(token)
       this.router.navigate(['/list'])
     }
   });
@@ -105,38 +113,38 @@ login(loginData:LoginData) {
 
 
 
-logout(){
-  this.token = null;
-  this.subject.next(false);         //user not authenticated
-  this.clearAuthData();
-  this.router.navigate(['/login'])
-}
+// logout(){
+//   this.token = null;
+//   this.subject.next(false);         //user not authenticated
+//   this.clearAuthData();
+//   this.router.navigate(['/login'])
+// }
 
-private saveAuthData(token: string){
-  localStorage.setItem('token',token);
-}
+// private saveAuthData(token: string){
+//   localStorage.setItem('token',token);
+// }
 
-private clearAuthData(){
-  localStorage.removeItem('token')
-}
+// private clearAuthData(){
+//   localStorage.removeItem('token')
+// }
 
-private getAuthData(){
-  const token= localStorage.getItem('token');
-  if(!token){
-    return;
-  }
-  return token;
-}
+// private getAuthData(){
+//   const token= localStorage.getItem('token');
+//   if(!token){
+//     return;
+//   }
+//   return token;
+// }
 
-autoAuthUser(){
-  const authInformation=this.getAuthData();
-  this.token = authInformation;
-  if(this.token){
-    this.isAuthenticated=true;
-    this.subject.next(true);
-  }
+// autoAuthUser(){
+//   const authInformation=this.getAuthData();
+//   this.token = authInformation;
+//   if(this.token){
+//     this.isAuthenticated=true;
+//     this.subject.next(true);
+//   }
 
-}
+// }
 
  
 }

@@ -2,32 +2,34 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-12  rounded shadow box signup-div">
-        <form [formGroup]="adminform" (ngSubmit)=onSignup()>
+        <form [formGroup]="regform" (ngSubmit)=onSignup()>
            
           <h3 class="text-center">Sign up</h3>
           <div class="form-group">
           
-            <input type="name" class="form-control" id="name"
-            placeholder="Enter your name" formControlName="name">
-            <!-- <small class="text-danger"
-            *ngIf="!adminform.get('name').valid && adminform.get('name').touched">
-            Please enter your name</small> -->
+            <input type="text" class="form-control" id="name"
+            placeholder="Enter your name" formControlName="name" required>
+
+            <small class="text-danger"
+            *ngIf="regform.invalid && (regform.dirty || regform.touched)">
+            Please enter your name</small>
+
           </div>
           <div class="form-group">
            
             <input type="email" class="form-control" id="email"
             placeholder="Enter email" formControlName="email">
-            <!-- <small class="text-danger"
-            *ngIf="!adminform.get('email').valid && adminform.get('email').touched">
-            Please enter valid email</small> -->
+            <small class="text-danger"
+            *ngIf="regform.invalid && (regform.dirty || regform.touched)">
+            Please enter valid email</small>
           </div>
           <div class="form-group">
           
             <input type="password" class="form-control" id="password"
             placeholder="Enter Password" formControlName="password">
-            <!-- <small class="text-danger"
-            *ngIf="!adminform.get('password').valid && adminform.get('password').touched">
-            Please enter your password</small> -->
+            <small class="text-danger"
+            *ngIf="regform.invalid && (regform.dirty || regform.touched)">
+            Please enter your password</small>
           </div>
      
          

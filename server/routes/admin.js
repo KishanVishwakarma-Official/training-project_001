@@ -10,7 +10,7 @@ const validInfo = require("../middleware/validInfo")
 const authorization = require("../middleware/authorization")
 
 
-
+    
 
 //  ADDING A NEW ADMIN
 router.post("/add",validInfo, async(req,res)=>{
@@ -79,7 +79,7 @@ router.post("/login", async (req,res)=>{
     
 // LIST ALL ADMINS
  
-router.get("/list",authorization, async(req,res)=>{
+router.get("/list",async(req,res)=>{
 
 try {
    
@@ -92,7 +92,7 @@ try {
 } )
 
 // VIEW ADMIN BY ID
-router.get("/view/:id",authorization, async(req,res)=>{
+router.get("/view/:id", async(req,res)=>{
 
     try {
         const id = req.params.id;
@@ -105,7 +105,7 @@ router.get("/view/:id",authorization, async(req,res)=>{
     } )
     
 // UPDATE ADMIN
-router.put("/update/:id",authorization, async(req,res)=>{
+router.put("/update/:id", async(req,res)=>{
 
     try {
         const {name,email,password,active} = req.body;
@@ -121,7 +121,7 @@ router.put("/update/:id",authorization, async(req,res)=>{
 } )
 
 // DELETE ADMIN
-router.delete("/delete/:id",authorization, async(req,res)=>{
+router.delete("/delete/:id", async(req,res)=>{
 
     try {
         const id =  req.params.id;

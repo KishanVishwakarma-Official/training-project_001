@@ -20,9 +20,9 @@ constructor(private authService:ServicesService) { }
     //  })
   }
 
-  onLogout(){
-    this.authService.logout();
-  }
+  // onLogout(){
+  //   this.authService.logout();
+  // }
 
   ngOnDestroy(){
       this.authListenerSubs.unsubscribe();
